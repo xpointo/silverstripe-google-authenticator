@@ -7,7 +7,7 @@ class GoogleAuthenticatorController extends Controller {
 	);
 
 	public function callback() {
-		$redirectUri = 'http' . ($_SERVER['HTTPS'] ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . '/GoogleAuthenticatorController/callback';
+		$redirectUri = 'http' . (isset($_SERVER['HTTPS']) ? ($_SERVER['HTTPS'] ? 's' : '') : '') . '://' . $_SERVER['HTTP_HOST'] . '/GoogleAuthenticatorController/callback';
 
 		$client = new Google_Client();
 		$client->setClientId(GOOGLE_AUTHENTICATOR_CLIENT_ID);
